@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark static-top bg-dark">
+      <a class="navbar-brand" href="#">Pubmed Translation Evaluation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Evaluation <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MT Models</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Admin</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="PMID Search" aria-label="PMID Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+<br>
+
+
+
+<main role="main" class="container">
+    <div class="container-fluid">
+
+        <h4>Cytoplasmic ERα and NFκB Promote Cell Survival in Mouse Mammary Cancer Cell Lines</h4>
+
+        <h6>
+          DOI:
+          <a href="https://doi.org/10.1177/096032719701600807"; class="text-muted">10.1177/096032719701600807</a>
+        </h6>
+        <h6>
+          PubMed:
+          <a href="https://www.ncbi.nlm.nih.gov/pubmed/9292286"; class="text-muted">https://www.ncbi.nlm.nih.gov/pubmed/9292286</a>
+        </h6>
+
+    </div>
+
+<br>
+
+<form action="/save_edit" method="post">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="width: 50%">English</th>
+          <th style="width: 50%">Translation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+          {% for sentence_tgt, sentence_src,vocabulary in parallel_texts %}
+        <div class="form-group">
+              <tr>
+          <td>{{ sentence_src }}</td>
+            <td><textarea class="form-control" id="edit{{ loop.index }}" rows="5">{{ sentence_tgt }}</textarea></td>
+
+        </tr>
+        </div>
+              {% if vocabulary|length > 0 %}
+
+                  {% for pair in vocabulary %}
+                    <tr class="table-info">
+                        <td  align='right'>  <span class="font-italic"> {{ pair[0] }} </span></td>
+                        <td> <span class="font-italic"> {{ pair[1] }} </span></td>
+                      </tr>
+                  {% endfor %}
+
+              {% endif %}
+          {% endfor %}
+
+      </tbody>
+    </table>
+<button class="btn btn-success btn-lg btn-block" type="submit">Save</button>
+<button class="btn btn-danger btn-lg btn-block" type="submit">Close</button>
+</form>
+<br>
+<br>
+</main>
+
+
+</body>
+</html>

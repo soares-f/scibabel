@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script>
+    function chbg_over(id_element) {
+    document.getElementById(id_element).style.backgroundColor = "#D5D8DC";
+    document.getElementById(id_element+"src").style.backgroundColor = "#FCF0D0";
+}
+</script>
+    <script>
+    function chbg_out(id_element) {
+    document.getElementById(id_element).style.backgroundColor = "white";
+    document.getElementById(id_element+"src").style.backgroundColor = "white";
+}
+</script>
+    <meta charset="UTF-8">
+    <title>Cytoplasmic ERα and NFκB Promote Cell Survival in Mouse Mammary Cancer Cell Lines</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark static-top bg-dark">
+      <a class="navbar-brand" href="#">Pubmed Translation Evaluation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Evaluation <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MT Models</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Admin</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="PMID Search" aria-label="PMID Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+<br>
+
+
+
+<main role="main" class="container">
+    <div class="container-fluid">
+
+        <h4>Cytoplasmic ERα and NFκB Promote Cell Survival in Mouse Mammary Cancer Cell Lines</h4>
+
+        <h6>
+          DOI:
+          <a href="https://doi.org/10.1177/096032719701600807"; class="text-muted">10.1177/096032719701600807</a>
+        </h6>
+        <h6>
+          PubMed:
+          <a href="https://www.ncbi.nlm.nih.gov/pubmed/9292286"; class="text-muted">https://www.ncbi.nlm.nih.gov/pubmed/9292286</a>
+        </h6>
+
+    </div>
+
+<br>
+  <div class="row justify-content-md-center">
+      <div class="col col-5">
+        <p class="text-center">English</p>
+      </div>
+
+      <div class="col col-5 ">
+          <p class="text-center">Target Language</p>
+      </div>
+
+      <div class="col col-2 ">
+          <p class="text-center">Actions</p>
+      </div>
+
+  <div class="row justify-content-md-center">
+      <div class="col col-5">
+        {% for sentence_src in text_src %}
+            <div class="d-inline" ; id="{{ loop.index|string + "src"}}" onmouseover="chbg_over({{ loop.index|string }})" onmouseout="chbg_out({{ loop.index|string }})" >
+                {{ sentence_src }}
+            </div>
+
+        {% endfor %}
+      </div>
+
+      <div class="col col-5">
+        {% for sentence_tgt in text_tgt %}
+        <div class="d-inline" ; id="{{ loop.index|string }}" onmouseover="chbg_over({{ loop.index|string }})" onmouseout="chbg_out({{ loop.index|string }})" > {{ sentence_tgt }}</div>
+
+        {% endfor %}
+      </div>
+
+      <div class="col col-2 align-self-center">
+          <div>
+              <button type="button" class="btn btn-default " aria-label="Like">
+                  <i class="fas fa-thumbs-up fa-2x"></i>
+                  <p class="text-success d-inline">3</p>
+              </button>
+
+          </div>
+
+          <div>
+              <button type="button" class="btn btn-default " aria-label="Edit">
+                  <i class="fas fa-edit fa-2x"></i>
+              </button>
+          </div>
+
+      </div>
+  </div>
+  </div>
+</main>
+
+
+</body>
+</html>
